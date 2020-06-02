@@ -8,14 +8,14 @@ pipeline{
      }
 	 stage('creatin docker image'){
       steps{
-	  sh "sudo docker build /var/lib/jenkins/workspace/SamplePythonProject -t firstapp"
+	  sh "sudo docker build /var/lib/jenkins/workspace/SamplePythonProject -t abhinandh1991/samplepython_1:firstapp"
       }
      }
 	 stage('docker image push'){
 	steps{
 	  withCredentials([string(credentialsId: 'abhinandh1991', variable: 'DockerHub-Password')]) {
-          sh "sudo docker login -u abhinandh1991 -p ${DockerHub-Password}"
-	  sh "sudo docker push firstapp"
+          sh "sudo docker login -u abhinandh1991 -p ${DockerHub-Password} docker.io"
+	  sh "sudo docker push docker.io/abhinandh1991/samplepython_1:firstapp"
 		}
 	  }
      }  

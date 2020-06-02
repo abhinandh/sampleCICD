@@ -13,8 +13,8 @@ pipeline{
      }
 	 stage('docker image push'){
 	steps{
-	  withCredentials([string(credentialsId: 'abhinandh1991', variable: 'DockerHub-Password')]) {
-          sh "sudo docker login -u abhinandh1991 -p ${DockerHub-Password} docker.io"
+	  withCredentials([string(credentialsId: 'abhinandh1991-abkc', variable: 'testDocker')]) {
+          sh "sudo docker login -u abhinandh1991 -p ${testDocker} docker.io"
 	  sh "sudo docker push docker.io/abhinandh1991/samplepython_1:firstapp"
 		}
 	  }

@@ -18,6 +18,12 @@ pipeline{
 	  sh "sudo docker push docker.io/abhinandh1991/samplepython_1:firstapp"
 		}
 	  }
-     }  
+     } 
+	   stage('Run the docker container'){
+        steps{
+          	 sh "sudo docker run -d --name firstpython -p 50005:5000 abhinandh1991/samplepython_1:firstapp"  
+
+	   }
+     }
    }	   
 }

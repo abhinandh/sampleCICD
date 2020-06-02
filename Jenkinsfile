@@ -15,9 +15,9 @@ pipeline{
 	 
 	 stage('clean docker build'){
 	  steps{
-	 sh 'sudo docker ps -f name=firstpython -q | xargs --no-run-if-empty docker container stop'
-		sh 'sudo docker container ls -a -f name=firstpython -q | xargs -r docker container rm'
-		sh 'sudo docker system prune -af --volumes'
+	 sh "sudo docker ps -f name=firstpython -q | xargs --no-run-if-empty docker container stop"
+		sh "sudo docker container ls -a -f name=firstpython -q | xargs -r docker container rm"
+		sh "sudo docker system prune -af --volumes"
 	   }
 	 }
 	 
